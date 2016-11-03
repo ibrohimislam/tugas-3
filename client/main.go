@@ -160,6 +160,9 @@ func main() {
 		case state == 2 && cmd[0] == "sendtouser":
 			s = "{\"command\":\"sendtouser\",\"data\": \"" + cmd[1] + "," + strings.Join(cmd[1:], " ") + "\", \"token\":\"" + token + "\"}"
 			break
+		case state == 2 && cmd[0] == "addfriend":
+			s = "{\"command\":\"addfriend\",\"data\": \"" + cmd[1] + "\", \"token\":\"" + token + "\"}"
+			break
 		case state == 2 && cmd[0] == "leave":
 			s = "{\"command\":\"leave\",\"data\": \"" + cmd[1] + "\", \"token\":\"" + token + "\"}"
 			break
@@ -173,6 +176,7 @@ func main() {
 			fmt.Println("register [username] [password]")
 			fmt.Println("login [username] [password]")
 			fmt.Println("-- after login --")
+			fmt.Println("addfriend [username]")
 			fmt.Println("creategroup [groupname]")
 			fmt.Println("addmember [groupname] [username]")
 			fmt.Println("removemember [groupname] [username]")
